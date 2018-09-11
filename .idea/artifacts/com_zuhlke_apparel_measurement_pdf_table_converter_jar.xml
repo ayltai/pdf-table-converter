@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="com.zuhlke.apparel.measurement.pdf-table-converter:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/com_zuhlke_apparel_measurement_pdf_table_converter_jar</output-path>
+    <root id="root">
+      <element id="archive" name="com.zuhlke.apparel.measurement.pdf-table-converter.jar">
+        <element id="module-output" name="com.zuhlke.apparel.measurement.pdf-table-converter" />
+        <element id="dir-copy" path="$PROJECT_DIR$/lib/libopencv_java342.so" />
+      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/lib/opencv-342.jar" />
+      <element id="library" level="module" name="Gradle: opencv-342" module-name="com.zuhlke.apparel.measurement.pdf-table-converter" />
+      <element id="dir-copy" path="$PROJECT_DIR$/lib" />
+    </root>
+  </artifact>
+</component>
