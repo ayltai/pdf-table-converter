@@ -7,23 +7,37 @@ This library uses 10 steps to read and process input PDF files and convert them 
 #### Step 1: Convert PDF to PNG images
 It calls `pdftoppm` to convert each page to an image. The default DPI is 150. Decreasing the DPI can speed up the conversion process but the conversion quality will also drop. Increasing the DPI does not seem to improve the conversion quality.
 
+![Step 1](images/blouse_jd_coli--pp-sample-size.png)
+
 #### Step 2: Convert colored image to grayscale
 In most cases, color information is not useful so we just use grayscale, which can speed up the whole process significantly.
+
+![Step 2](images/1-gray-blouse_jd_coli--pp-samp.png)
 
 #### Step 3: Convert grayscale image to binary
 The grascale image is first inverted by applying a bitwise NOT operator to each byte value. Then we apply adaptive thresholding to obtain a high quality binary image.
 
+![Step 3](images/2-binary-blouse_jd_coli--pp-sa.png)
+
 #### Step 4: Detect horizontal lines
 Use a morphological operator to detect horizontal lines.
+
+![Step 4](images/3-horizontal-blouse_jd_coli--p.png)
 
 #### Step 5: Detect vertical lines
 Use a morphological operator to detect vertical lines.
 
+![Step 5](images/4-vertical-blouse_jd_coli--pp-.png)
+
 #### Step 6: Superposition horizontal and vertical lines
 Combine the horizontal and vertical lines to reconstruct the table lines.
 
+![Step 6](images/5-mask-blouse_jd_coli--pp-samp.png)
+
 #### Step 7: Detect joint points
 Use bitwise AND operator to detect joint points of the horizontal and vertical lines. Now we have the vertices of all table cells.
+
+![Step 7](images/6-joints-blouse_jd_coli--pp-sa.png)
 
 #### Step 8: Detect the outmost boundary of the table
 Find our region-of-interest by detecting the external contour from the result obtained in step 6.
